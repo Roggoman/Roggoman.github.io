@@ -1,0 +1,26 @@
+{% extends "base.html" %} 
+{% block title %} 
+{{article.title}}
+{% endblock %} 
+
+{% block header %}
+<header class="d-flex justify-content-center py-3">
+    <ul class="nav nav-pills">
+    <li class="nav-item"><a href="/home" class="nav-link " aria-current="page">Главная</a></li>
+    <li class="nav-item"><a href="/about" class="nav-link">О нас</a></li>
+    <li class="nav-item"><a href="/posts" class="nav-link active">Наш Прайс</a></li>
+    <li class="nav-item"><a href="/admin" class="nav-link">Админка</a></li>
+    </ul>
+</header>
+{% endblock %}
+
+{% block main %}
+<h1 class="h110">{{article.title}}</h1>
+<div class="alert alert-info">
+    <h2>{{ article.intro }} рублей</h2>
+    <hr class="line">
+    <h3>{{ article.text }}</h3>
+    <q>Дата: {{ article.date.date() }}</q><br>
+</div>
+<a href="/posts" class="btn btn-warning">Вернуться</a>
+{% endblock %}

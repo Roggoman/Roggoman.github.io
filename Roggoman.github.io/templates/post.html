@@ -1,0 +1,38 @@
+{% extends "base.html" %} 
+{% block title %} 
+Посты
+{% endblock %} 
+
+{% block header %}
+<header class="d-flex justify-content-center py-3">
+    <ul class="nav nav-pills">
+    <li class="nav-item"><a href="/home" class="nav-link" aria-current="page">Главная</a></li>
+    <li class="nav-item"><a href="/about" class="nav-link">О нас</a></li>
+    <li class="nav-item"><a href="/posts" class="nav-link active">Наш Прайс</a></li>
+    <li class="nav-item"><a href="/admin" class="nav-link">Админка</a></li>
+    </ul>
+</header>
+{% endblock %}
+
+{% block main %}
+<h1 class="h110"> Posts </h1>
+
+{% if articles|length %}
+    {% for i in articles %}
+    <div class="t45">
+    <div class="card" style="width: 18rem;">
+        <img class="imh" src="{{ i.cover }}" alt="изображение">
+        <div class="card-body">
+            <h5 class="card-title">{{ i.title }}</h5>
+            <p class="card-text">{{ i.intro }} рублей</p>
+            <a href="/posts/{{ i.id }}" class="btn btn-primary">Подробнее</a>
+        </div>
+    </div></div>
+    {% endfor %}
+{% else %}
+<h2 class="h110">Кажется, тут еще нет статей</h2>
+{% endif %}
+
+
+
+{% endblock %}
